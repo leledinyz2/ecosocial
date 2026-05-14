@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecosocial - Cuidado que Transforma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+/* ============================================
+   Ecosocial - Minimalismo Orgânico
+   Paleta: Verde floresta (#2D5016), Bege natural (#F5F1E8), Cinza quente (#8B8680)
+   ============================================ */
+
+:root {
+    --primary: #2D5016;
+    --primary-light: #6B8E5F;
+    --secondary: #F5F1E8;
+    --muted: #8B8680;
+    --foreground: #3F3F3F;
+    --background: #fcffed;
+    --border: #E5E5E5;
+    --radius: 8px;
+    --radius-lg: 16px;
+    
+    --font-playfair: 'Playfair Display', serif;
+    --font-poppins: 'Poppins', sans-serif;
+    
+    --transition: all 0.3s ease-out;
+    --transition-fast: all 0.15s ease-out;
+}
+
+/* ============================================
+   Reset & Base Styles
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: #2D5016;
+    background-color: #fcffed;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s ease-out;
+}
+
+button {
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    border: none;
+    transition: all 0.15s ease-out;;
+}
+
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding: 0 2rem;
+    }
+}
+
+/* ============================================
+   Header & Navigation
+   ============================================ */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background-color: #fcffed;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #2D5016;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Playfair Display", serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.logo-text {
+    font-family: "Playfair Display", serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: ##FFFDD9;
+    display: none;
+}
+
+@media (min-width: 640px) {
+    .logo-text {
+        display: inline;
+    }
+}
+
+.nav-desktop {
+    display: none;
+    gap: 32px;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .nav-desktop {
+        display: flex;
+    }
+}
+
+.nav-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: #2D5016;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #2D5016;
+    transition: width 0.3s ease-out;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.btn-comprar {
+    display: none;
+    padding: 8px 24px;
+    background-color: #2D5016;
+    color: white;
+    border-radius: 24px;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+    .btn-comprar {
+        display: block;
+    }
+}
+
+.btn-comprar:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
+
+.menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    color: #2D5016;
+    font-size: 24px;
+}
+
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+}
+
+.menu-toggle:hover {
+    background-color: #F5F1E8;
+    border-radius: 8px;
+}
+
+.nav-mobile {
+    display: none;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    border-top: 1px solid var(--border);
+    background-color: #fcffed;
+    animation: slideDown 0.3s ease-out;
+}
+
+.nav-mobile.active {
+    display: flex;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
+
+.hero {
+    padding-top: 120px;
+    padding-bottom: 80px;
+}
+
+@media (min-width: 768px) {
+    .hero {
+        padding-top: 160px;
+        padding-bottom: 128px;
+    }
+}
+
+.hero .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .hero .container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.hero-label {
+    color: #2D5016;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-title {
+    font-size: 48px;
+    line-height: 1.2;
+    color: #2D5016;
+}
+
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 56px;
+    }
+}
+
+.hero-description {
+    font-size: 18px;
+    color: rgba(63, 63, 63, 0.7);
+    line-height: 1.8;
+    max-width: 500px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 16px;
+}
+
+@media (min-width: 640px) {
+    .hero-buttons {
+        flex-direction: row;
+    }
+}
+
+.hero-image {
+    height: 384px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .hero-image {
+        height: 100%;
+        min-height: 500px;
+    }
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+
+.btn {
+    padding: 12px 32px;
+    border-radius: 24px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.15s ease-out;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn-primary {
+    background-color: #2D5016;
+    color: white;
+    box-shadow: 0 4px 6px rgba(45, 80, 22, 0.1);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 8px 12px rgba(45, 80, 22, 0.15);
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #2D5016;
+    border: 2px solid #2D5016;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(45, 80, 22, 0.05);
+}
+
+.btn-outline {
+    width: 100%;
+    background-color: transparent;
+    color: #2D5016;
+    border: 2px solid #2D5016;
+    padding: 10px 16px;
+    font-size: 14px;
+}
+
+.btn-outline:hover {
+    background-color: #2D5016;
+    color: white;
+}
+
+/* ============================================
+   Products Section
+   ============================================ */
+
+.products {
+    padding: 80px 0;
+    background-color: rgba(245, 241, 232, 0.3);
+}
+
+@media (min-width: 768px) {
+    .products {
+        padding: 128px 0;
+    }
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 48px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-label {
+    color: #2D5016;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.section-title {
+    font-size: 36px;
+    color: #2D5016;
+    margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 48px;
+    }
+}
+
+.section-description {
+    font-size: 18px;
+    color: rgba(63, 63, 63, 0.7);
+    line-height: 1.8;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+}
+
+@media (min-width: 768px) {
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.product-card {
+    background-color: #fcffed;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-out;
+}
+
+.product-card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    height: 256px;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease-out;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.product-title {
+    font-size: 20px;
+    color: #2D5016;
+}
+
+.product-description {
+    font-size: 14px;
+    color: rgba(63, 63, 63, 0.7);
+    line-height: 1.6;
+}
+
+.product-benefits {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.product-benefits li {
+    font-size: 14px;
+    color: rgba(63, 63, 63, 0.7);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.benefit-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #2D5016;
+    flex-shrink: 0;
+}
+
+/* ============================================
+   Sustainability Section
+   ============================================ */
+
+.sustainability {
+    padding: 80px 0;
+}
+
+@media (min-width: 768px) {
+    .sustainability {
+        padding: 128px 0;
+    }
+}
+
+.sustainability-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .sustainability-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.sustainability-text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.sustainability-description {
+    font-size: 18px;
+    color: rgba(63, 63, 63, 0.7);
+    line-height: 1.8;
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 16px;
+}
+
+.feature {
+    display: flex;
+    gap: 16px;
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(45, 80, 22, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2D5016;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.feature-content h3 {
+    font-size: 16px;
+    color: ##2D5016;
+    margin-bottom: 4px;
+}
+
+.feature-content p {
+    font-size: 14px;
+    color: rgba(63, 63, 63, 0.7);
+}
+
+.sustainability-image {
+    height: 384px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .sustainability-image {
+        height: 100%;
+        min-height: 500px;
+    }
+}
+
+.sustainability-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+.footer {
+    background-color: #2D5016;
+    color: white;
+    padding: 48px 0 32px;
+}
+
+@media (min-width: 768px) {
+    .footer {
+        padding: 64px 0 32px;
+    }
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+    .footer-content {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.footer-section h3 {
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.footer-logo .logo-circle {
+    background-color: white;
+    color: #2D5016;
+}
+
+.footer-logo span {
+    font-family: "Playfair Display", serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.footer-description {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-section ul li a {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-section ul li a:hover {
+    color: white;
+}
+
+.social-links {
+    display: flex;
+    gap: 16px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    transition: all 0.3s ease-out;
+}
+
+.social-icon:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-links a {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 767px) {
+    .hero .container {
+        padding-top: 0;
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .products-grid {
+        gap: 24px;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-circle">E</div>
+                    <span class="logo-text">Ecosocial</span>
+                </div>
+
+                <nav class="nav-desktop">
+                    <a href="#products" class="nav-link">Produtos</a>
+                    <a href="#about" class="nav-link">Sobre</a>
+                    <a href="#sustainability" class="nav-link">Sustentabilidade</a>
+                    <a href="#contact" class="nav-link">Contato</a>
+                </nav>
+
+                <button class="btn-comprar">Comprar</button>
+
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <nav class="nav-mobile" id="mobileMenu">
+                <a href="#products" class="nav-link">Produtos</a>
+                <a href="#about" class="nav-link">Sobre</a>
+                <a href="#sustainability" class="nav-link">Sustentabilidade</a>
+                <a href="#contact" class="nav-link">Contato</a>
+                <button class="btn-comprar">Comprar</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-label">Cuidado Consciente</span>
+                    <h1 class="hero-title">Cuidado que Transforma</h1>
+                    <p class="hero-description">
+                        Trio completo de máscaras capilares com embalagens de bambu biodegradáveis. Fórmulas veganas, ativos naturais e cuidado consciente para cabelos saudáveis e fortes.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary">Descobrir Produtos</button>
+                        <button class="btn btn-secondary">Saiba Mais</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663373720842/7dDFyw7HyiSXWabjv6xd3a/ecosocial-hero-background-DzdFgU5p6Jiw4EaivyXXbU.webp" alt="Bamboo and natural elements">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Trio Completo</span>
+                <h2 class="section-title">Máscaras Capilares Ecosocial</h2>
+                <p class="section-description">
+                    Três soluções completas para cada necessidade do seu cabelo. Fórmulas veganas com ativos naturais.
+                </p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image" style="background-color: #dbeafe;">
+                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663373720842/7dDFyw7HyiSXWabjv6xd3a/ecosocial-product-showcase-RbtpshiDWWbrErt2aAkSYK.webp" alt="Hidratação e Brilho">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Hidratação e Brilho</h3>
+                        <p class="product-description">
+                            Máscara intensiva com aloe vera e ácido hialurônico para hidratação profunda.
+                        </p>
+                        <ul class="product-benefits">
+                            <li><span class="benefit-dot"></span>Mais brilho</li>
+                            <li><span class="benefit-dot"></span>Cabelos hidratados</li>
+                            <li><span class="benefit-dot"></span>Leveza e maciez</li>
+                        </ul>
+                        <button class="btn btn-outline">Saiba Mais</button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image" style="background-color: #fef3c7;">
+                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663373720842/7dDFyw7HyiSXWabjv6xd3a/ecosocial-product-showcase-RbtpshiDWWbrErt2aAkSYK.webp" alt="Nutrição e Maciez">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Nutrição e Maciez</h3>
+                        <p class="product-description">
+                            Máscara nutritiva com óleos naturais para cabelos sedosos e nutridos.
+                        </p>
+                        <ul class="product-benefits">
+                            <li><span class="benefit-dot"></span>Nutrição intensa</li>
+                            <li><span class="benefit-dot"></span>Cabelos macios</li>
+                            <li><span class="benefit-dot"></span>Sem frizz</li>
+                        </ul>
+                        <button class="btn btn-outline">Saiba Mais</button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image" style="background-color: #fed7aa;">
+                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663373720842/7dDFyw7HyiSXWabjv6xd3a/ecosocial-product-showcase-RbtpshiDWWbrErt2aAkSYK.webp" alt="Reconstrução e Força">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Reconstrução e Força</h3>
+                        <p class="product-description">
+                            Máscara reconstrutora com queratina e macadâmia para cabelos fortes.
+                        </p>
+                        <ul class="product-benefits">
+                            <li><span class="benefit-dot"></span>Força e resistência</li>
+                            <li><span class="benefit-dot"></span>Reduz quebra</li>
+                            <li><span class="benefit-dot"></span>Cabelos saudáveis</li>
+                        </ul>
+                        <button class="btn btn-outline">Saiba Mais</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Section -->
+    <section class="sustainability" id="sustainability">
+        <div class="container">
+            <div class="sustainability-content">
+                <div class="sustainability-text">
+                    <span class="section-label">Missão</span>
+                    <h2 class="section-title">Cuidado Consciente do Planeta</h2>
+                    <p class="sustainability-description">
+                        Na Ecosocial, acreditamos que beleza e sustentabilidade caminham juntas. Cada produto é desenvolvido com responsabilidade ambiental e social.
+                    </p>
+
+                    <div class="features">
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Embalagem de Bambu</h3>
+                                <p>Embalagens biodegradáveis e renováveis que protegem o planeta.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-droplet"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Fórmulas Veganas</h3>
+                                <p>Sem ingredientes de origem animal. Cuidado ético e consciente.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Beleza Consciente</h3>
+                                <p>Cuidar de você e do planeta em perfeita harmonia.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sustainability-image">
+                    <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663373720842/7dDFyw7HyiSXWabjv6xd3a/ecosocial-sustainability-visual-TfsTcDeGAWjyiqX6cdMqbE.webp" alt="Sustainability visual">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-circle">E</div>
+                        <span>Ecosocial</span>
+                    </div>
+                    <p class="footer-description">
+                        Cuidado que transforma. Beleza consciente para você e para o planeta.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Produtos</h3>
+                    <ul>
+                        <li><a href="#">Hidratação e Brilho</a></li>
+                        <li><a href="#">Nutrição e Maciez</a></li>
+                        <li><a href="#">Reconstrução e Força</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Empresa</h3>
+                    <ul>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Sustentabilidade</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Conecte-se</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ecosocial. Todos os direitos reservados.</p>
+                <div class="footer-links">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>                                                                                                                                                                                                                             </div>{a  <title>Ecosocial - Cuidado que Transforma</title> <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="styles                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </div>{a  <title>Ecosocial - Cuidado que Transforma</title> <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</body>
+</html>
